@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    font-family: monospace; 
+    color: forestgreen;
+    /*background-image: url('http://cdn.wallpapersafari.com/95/14/HXlLzT.jpg')*/
+}
+
+.itemimage{
+    width : 200px; 
+    height : 200px; 
+}

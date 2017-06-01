@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let's go on a Roadtrip</title>
+    <script src="https://unpkg.com/vue"></script>
+    <!--jQuery!-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Let's Go On a Roadtrip!</h1>
+    Click on an image and add it to your car.
+    <div id="app">
+        <div id='images'>
+            <!--<div v-on:click="checkWeight">
+                <div v-on:click="checkSpent">-->
+            <span v-on:click="addRaft"> <img src='./roadtrip/poopraft.jpg' class='itemimage'></span> ${{items[0].cost}},
+            {{items[0].weight}}lbs
+            <span v-on:click="addCat"> <img src='./roadtrip/cat.jpg' class='itemimage'> </span>
+            <span v-on:click="addGuitar"> <img src='./roadtrip/brokenguitar.jpg' class='itemimage'> </span>
+            <span v-on:click="addSnowshoe"> <img src='./roadtrip/snowshoe.jpg' class='itemimage'> </span>
+            <br>
+            <span v-on:click="addBindleStick"> <img src='./roadtrip/bindlestick.jpg' class='itemimage'> </span>
+            <span v-on:click="addCoolerOfBeer"> <img src='./roadtrip/coolerofbeer.jpg' class='itemimage'> </span>
+            <span v-on:click="addWeed"> <img src='./roadtrip/weed.jpeg' class='itemimage'> </span>
+            <span v-on:click="addSandwich"> <img src='./roadtrip/sandwich.jpeg' class='itemimage'> </span>
+            <!--</div>
+            </div>-->
+        </div>
+        <div id='result'>
+            <h1>In Your Car:</h1>
+            <div v-for="item of currentItems">
+                {{item.name}} ${{item.cost}} {{item.weight}} lbs
+
+                <!--<span v-on:click="removeItem"><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></span>-->
+                <br>
+
+            </div>
+            <div v-for="item of overweight"><span v-bind:style="style">
+            {{item.name}} ${{item.cost}} {{item.weight}} lbs : Overweight! Remove some items!  <span v-on:click="removeItemWeight"><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></span>
+                </span>
+            </div>
+            <div v-for="item of overspent"><span v-bind:style="style">
+                {{item.name}} ${{item.cost}} {{item.weight}} lbs : Overspent! Remove some items!  <span v-on:click="removeItemCost"> <span class='glyphicon glyphicon-trash' aria-hidden='true'></span>                </span>
+                </span>
+            </div>
+            <div id='totals'>
+                <h1>Totals:</h1>
+                Weight: {{weight}}lbs<br> {{maxWeight - weight}} lbs remaining<br>
+                <br> Spent: ${{spent}} <br> ${{maxSpent-spent}} remaining
+            </div>
+        </div>
+
+        <!--COMPONENT TESTING-->
+        <!--<current-items v-for="item in currentItems"
+                v-if="!item.deleted"
+                v-bind:name="item.itemName"
+                v-bind:count="item.itemCount"
+                v-on:deleted="item.deleted = true"
+            ></current-items>-->
+    </div>
+
+
+
+        <script src="./app.js"></script>
+        <!--<script src="./templates.js"></script>-->
+</body>
+
+</html>
